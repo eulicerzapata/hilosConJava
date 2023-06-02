@@ -18,7 +18,7 @@ public class CajeraProducto {
     }
     
     public void procesarCompra(ClienteProducto cliente, long timeStamp){
-        
+        System.out.println("Sin hilos");
         System.out.println("la cajera: " + this.nombre
         + "comienza a procesar la compra del cliente "+
                 cliente.getNombre() + "en el tiempo: "+
@@ -27,11 +27,13 @@ public class CajeraProducto {
        int contCliente=1;
        for(Producto producto:cliente.getProductos()){
            this.esperarXsegundos();
-           System.out.println("procesando el producto " + contCliente
-           +" nombre producto "+ producto.getNombre()
-           +" precio producto "+ producto.getPrecio()
-           +" cantidad de productops "+ producto.getCantidad()
-           +" costo total del producto "+producto.getCantidad()+producto.getPrecio()
+           
+           System.out.println(
+           "procesando el producto " 
+           +" nombre producto: "+ producto.getNombre()
+           +" precio producto: "+ producto.getPrecio()
+           +" cantidad de productos: "+ producto.getCantidad()
+           +" costo total del producto: "+producto.getCantidad()+producto.getPrecio()
            +" ->Tiempo "+  (System.currentTimeMillis() - timeStamp)/1000+" seg " );
        }
        System.out.println("la cajera " + this.nombre + "ha terminado de procesar "
